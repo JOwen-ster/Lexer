@@ -15,7 +15,7 @@ def python_lexer(code):
 
     combined_pattern = '|'.join('(?P<{}>{})'.format(name, pattern) for pattern, name in patterns)
 
-    tokens = []
+    tokens = [] # make dictionary instead of list
     for match in re.finditer(combined_pattern, code):
         token_type = match.lastgroup
         token_value = match.group(token_type)
